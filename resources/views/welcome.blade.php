@@ -217,7 +217,7 @@
         }
 
         .arrow-left {
-            left: -60px;
+            left: -500px;
         }
 
         .arrow-right {

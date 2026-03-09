@@ -314,26 +314,36 @@
             <input type="hidden" name="birthdate" id="hiddenBirthdate">
 
             <label for="password">Password</label>
-            <div class="input-wrapper">
-                <input type="password" id="password" name="password" placeholder="Masukkan password" oninput="checkPassword()">
-                <button type="button" class="eye-icon" onclick="togglePass('password')">👁</button>
-            </div>
+<div class="input-wrapper">
+    <input type="password" id="password" name="password" placeholder="Masukkan password" oninput="checkPassword()">
+    <button type="button" class="eye-icon" onclick="togglePass('password')">👁</button>
+</div>
 
-            <label for="password_confirmation">Konfirmasi Password</label>
-            <div class="input-wrapper">
-                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi password">
-                <button type="button" class="eye-icon" onclick="togglePass('password_confirmation')">👁</button>
-            </div>
+<div style="margin-top: -10px; margin-bottom: 16px;">
+    <div style="height: 6px; background: #f0d5d5; border-radius: 10px; overflow: hidden;">
+        <div id="strengthBar" style="height: 100%; width: 0%; border-radius: 10px; transition: all 0.4s ease;"></div>
+    </div>
+    <p id="strengthLabel" style="font-size: 12px; font-weight: 600; margin-top: 5px; color: transparent;">-</p>
+</div>
 
-            <div class="password-rules">
-                <p>Password harus mengandung:</p>
-                <div class="rule" id="ruleLength">
-                    <span class="rule-icon">✕</span> Minimal 8 karakter
-                </div>
-                <div class="rule" id="ruleAlphanumeric">
-                    <span class="rule-icon">✕</span> Huruf dan angka
-                </div>
-            </div>
+<label for="password_confirmation">Konfirmasi Password</label>
+<div class="input-wrapper">
+    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi password">
+    <button type="button" class="eye-icon" onclick="togglePass('password_confirmation')">👁</button>
+</div>
+
+<div class="password-rules">
+    <p>Password harus mengandung:</p>
+    <div class="rule" id="ruleLength">
+        <span class="rule-icon">✕</span> Minimal 8 karakter
+    </div>
+    <div class="rule" id="ruleNumber">
+        <span class="rule-icon">✕</span> Huruf dan angka
+    </div>
+    <div class="rule" id="ruleSpecial">
+        <span class="rule-icon">✕</span> Karakter unik (!@#$%^&*)
+    </div>
+</div>
 
             <button type="submit" class="btn-main">Daftar Sekarang</button>
         </form>
@@ -405,28 +415,57 @@
         input.type = input.type === 'password' ? 'text' : 'password';
     }
 
-    function checkPassword() {
-        const val = document.getElementById('password').value;
+function checkPassword() {
+    const val = document.getElementById('password').value;
 
-        const ruleLength = document.getElementById('ruleLength');
-        const ruleAlpha = document.getElementById('ruleAlphanumeric');
+    const ruleLength  = document.getElementById('ruleLength');
+    const ruleNumber  = document.getElementById('ruleNumber');
+    const ruleSpecial = document.getElementById('ruleSpecial');
+    const bar         = document.getElementById('strengthBar');
+    const label       = document.getElementById('strengthLabel');
 
-        if (val.length >= 8) {
-            ruleLength.classList.add('valid');
-            ruleLength.querySelector('.rule-icon').textContent = '✓';
+    const hasLength  = val.length >= 8;
+    const hasNumber  = /[0-9]/.test(val);
+    const hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(val);
+
+    function setRule(el, valid) {
+        if (valid) {
+            el.classList.add('valid');
+            el.querySelector('.rule-icon').textContent = '✓';
         } else {
-            ruleLength.classList.remove('valid');
-            ruleLength.querySelector('.rule-icon').textContent = '✕';
-        }
-
-        if (/[a-zA-Z]/.test(val) && /[0-9]/.test(val)) {
-            ruleAlpha.classList.add('valid');
-            ruleAlpha.querySelector('.rule-icon').textContent = '✓';
-        } else {
-            ruleAlpha.classList.remove('valid');
-            ruleAlpha.querySelector('.rule-icon').textContent = '✕';
+            el.classList.remove('valid');
+            el.querySelector('.rule-icon').textContent = '✕';
         }
     }
+
+    setRule(ruleLength,  hasLength);
+    setRule(ruleNumber,  hasNumber);
+    setRule(ruleSpecial, hasSpecial);
+
+    const score = [hasLength, hasNumber, hasSpecial].filter(Boolean).length;
+
+    if (val.length === 0) {
+        bar.style.width = '0%';
+        bar.style.background = 'transparent';
+        label.style.color = 'transparent';
+        label.textContent = '-';
+    } else if (score === 1) {
+        bar.style.width = '33%';
+        bar.style.background = '#e05555';
+        label.style.color = '#e05555';
+        label.textContent = 'Lemah';
+    } else if (score === 2) {
+        bar.style.width = '66%';
+        bar.style.background = '#f0a500';
+        label.style.color = '#f0a500';
+        label.textContent = 'Sedang';
+    } else if (score === 3) {
+        bar.style.width = '100%';
+        bar.style.background = '#4caf50';
+        label.style.color = '#4caf50';
+        label.textContent = 'Kuat';
+    }
+}
 </script>
 </body>
 </html>

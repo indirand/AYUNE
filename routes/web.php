@@ -17,4 +17,44 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/profil', function () {
+    return view('profile.index');
+})->middleware(['auth'])->name('profil');
+
+Route::get('/ayu-belanja', function () {
+    return view('ayu-belanja');
+})->middleware(['auth'])->name('ayu-belanja');
+
+Route::get('/ayu-daur-ulang', function () {
+    return view('ayu-daur-ulang');
+})->middleware(['auth'])->name('ayu-daur-ulang');
+
+Route::get('/dropoff-lokasi', function () {
+    return view('dropoff-lokasi');
+})->middleware(['auth'])->name('dropoff-lokasi');
+
+Route::get('/keranjang', function () {
+    return view('keranjang');
+})->middleware(['auth'])->name('keranjang');
+
+Route::get('/notifikasi', function () {
+    return view('notifikasi');
+})->middleware(['auth'])->name('notifikasi');
+
+Route::get('/scan-kemasan', function () {
+    return view('scan-kemasan');
+})->middleware(['auth'])->name('scan-kemasan');
+
+Route::get('/detail-produk', function () {
+    return view('detail-produk');
+})->middleware(['auth'])->name('detail-produk');
+
+Route::get('/checkout', function () {
+    return view('checkout');
+})->middleware(['auth'])->name('checkout');
+
+Route::get('/chat-penjual', function () {
+    return view('chat-penjual');
+})->middleware(['auth'])->name('chat-penjual');
+
 require __DIR__.'/auth.php';

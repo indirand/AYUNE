@@ -374,8 +374,8 @@
 
     <ul class="nav-links">
         <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Ayu Belanja</a></li>
-        <li><a href="#">Ayu Daur Ulang</a></li>
+        <li><a href="{{ route('ayu-belanja') }}">Ayu Belanja</a></li>
+        <li><a href="{{ route('ayu-daur-ulang') }}">Ayu Daur Ulang</a></li>
         <li><a href="#">Ayu Koin</a></li>
     </ul>
 
@@ -385,17 +385,12 @@
             <input type="text" placeholder="Cari produk...">
         </div>
 
-        <div class="nav-icon">
-            🔔
-            <div class="badge">•</div>
-        </div>
+        <a href="{{ route('notifikasi') }}" class="nav-icon">🔔<div class="badge">•</div></a>
+        <a href="{{ route('keranjang') }}" class="nav-icon">🛒<div class="badge">2</div></a>
 
-        <div class="nav-icon">
-            🛒
-            <div class="badge">2</div>
-        </div>
-
-        <div class="avatar">👤</div>
+        <a href="{{ route('profil') }}" style="text-decoration:none;">
+     <div class="avatar">👤</div>
+    </a>
     </div>
 </nav>
 
@@ -429,14 +424,14 @@
 
 <!-- FEATURE CARDS -->
 <div class="feature-section">
-    <a href="#" class="feature-card">
+    <a href="{{ route('ayu-daur-ulang') }}" class="feature-card">
         <div class="feature-icon-wrap">♻️</div>
         <div>
             <h3>Ayu Daur Ulang</h3>
             <p>Tukar kemasan jadi koin</p>
         </div>
     </a>
-    <a href="#" class="feature-card">
+    <a href="{{ route('ayu-belanja') }}" class="feature-card">
         <div class="feature-icon-wrap">🛍️</div>
         <div>
             <h3>Ayu Belanja</h3>
@@ -456,7 +451,7 @@
 <div class="product-section">
     <div class="section-header">
         <h2>Produk Terbaru</h2>
-        <a href="#">Lihat Semua →</a>
+        <a href="{{ route('ayu-belanja') }}">Lihat Semua →</a>
     </div>
 
     <div class="product-grid">
