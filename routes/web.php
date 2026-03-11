@@ -57,4 +57,24 @@ Route::get('/chat-penjual', function () {
     return view('chat-penjual');
 })->middleware(['auth'])->name('chat-penjual');
 
+Route::get('/ayu-koin', function () {
+    return view('ayu-koin');
+})->middleware(['auth'])->name('ayu-koin');
+
+Route::get('/pesanan-berhasil', function () {
+    return view('pesanan-berhasil');
+})->middleware(['auth'])->name('pesanan-berhasil');
+
+Route::get('/pesanan-saya', function () {
+    return view('pesanan-saya');
+})->middleware(['auth'])->name('pesanan-saya');
+
+Route::get('/detail-pesanan', function () {
+    return view('detail-pesanan');
+})->middleware(['auth'])->name('detail-pesanan');
+
+Route::get('/lacak-pesanan', function () {
+    return view('lacak-pesanan');
+})->middleware(['auth'])->name('lacak-pesanan');
+
 require __DIR__.'/auth.php';

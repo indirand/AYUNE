@@ -13,7 +13,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 40px;
+            padding: 10px 40px;
             border-bottom: 1px solid #f5e0e0;
             background: white;
             position: sticky;
@@ -25,7 +25,7 @@
         .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: #7a4a4a; }
         .nav-links a:hover { color: #e07080; }
         .nav-right { display: flex; align-items: center; gap: 18px; }
-        .search-box { display: flex; align-items: center; background: #f9f0f2; border-radius: 50px; padding: 8px 16px; gap: 8px; width: 220px; }
+        .search-box { display: flex; align-items: center; background: #f9f0f2; border-radius: 50px; padding: 1px 16px; gap: 8px; width: 220px; }
         .search-box input { border: none; background: transparent; outline: none; font-size: 13px; width: 100%; font-family: 'Poppins', sans-serif; }
         .search-box input::placeholder { color: #c4a0a0; }
         .nav-icon { position: relative; cursor: pointer; font-size: 20px; color: #7a4a4a; text-decoration: none; }
@@ -127,13 +127,10 @@
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('ayu-belanja') }}">Ayu Belanja</a></li>
         <li><a href="{{ route('ayu-daur-ulang') }}">Ayu Daur Ulang</a></li>
-        <li><a href="#">Ayu Koin</a></li>
+        <li><a href="{{ route('ayu-koin') }}">Ayu Koin</a></li>
     </ul>
     <div class="nav-right">
-        <div class="search-box">
-            <span>🔍</span>
-            <input type="text" placeholder="Cari produk...">
-        </div>
+        <div class="search-box"><span>🔍</span><input type="text" placeholder="Cari produk..."></div>
         <a href="{{ route('notifikasi') }}" class="nav-icon">🔔<div class="badge">•</div></a>
         <a href="{{ route('keranjang') }}" class="nav-icon">🛒<div class="badge">2</div></a>
         <a href="{{ route('profil') }}" class="avatar">A</a>
@@ -231,7 +228,7 @@
                 <span>Total</span>
                 <span id="totalVal">Rp 185.000</span>
             </div>
-            <button class="btn-pesan">Buat Pesanan</button>
+            <a href="{{ route('pesanan-berhasil') }}" class="btn-pesan" style="display:block; text-align:center; text-decoration:none;">Buat Pesanan</a>
         </div>
     </div>
 </div>

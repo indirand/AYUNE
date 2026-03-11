@@ -320,7 +320,7 @@
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('ayu-belanja') }}">Ayu Belanja</a></li>
         <li><a href="{{ route('ayu-daur-ulang') }}">Ayu Daur Ulang</a></li>
-        <li><a href="#">Ayu Koin</a></li>
+        <li><a href="{{ route('ayu-koin') }}">Ayu Koin</a></li>
     </ul>
     <div class="nav-right">
         <div class="search-box">

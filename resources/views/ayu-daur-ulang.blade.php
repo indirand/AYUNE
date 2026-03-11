@@ -302,14 +302,14 @@
 <nav class="navbar">
     <div class="nav-logo">
         <a href="{{ route('dashboard') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="AYU-NE">
+            <img src="{{ asset('images/AYU-NE.png') }}" alt="AYU-NE">
         </a>
     </div>
     <ul class="nav-links">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('ayu-belanja') }}">Ayu Belanja</a></li>
-        <li><a href="#" class="active">Ayu Daur Ulang</a></li>
-        <li><a href="#">Ayu Koin</a></li>
+        <li><a href="{{ route('ayu-daur-ulang') }}" class="active">Ayu Daur Ulang</a></li>
+        <li><a href="{{ route('ayu-koin') }}">Ayu Koin</a></li>
     </ul>
     <div class="nav-right">
         <div class="search-box">
