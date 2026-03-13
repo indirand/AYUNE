@@ -85,7 +85,7 @@
 <div class="success-wrap">
     <div class="success-box">
         <div class="check-circle">✓</div>
-        <div class="success-title">Pesanan Berhasil Dibuat! 🎉</div>
+        <div class="success-title">Pesanan Berhasil Dibuat! </div>
         <div class="order-id">Order ID: #AYU-2026-00123</div>
         <div class="success-desc">Pesananmu sedang diproses. Kami akan mengirimkan notifikasi saat pesanan dikirim.</div>
         <div class="action-buttons">
