@@ -104,7 +104,7 @@
             text-decoration: none;
         }
         /* CONTENT */
-        .content { padding: 36px 48px; }
+        .content { padding: 48px 48px 36px 48px; }
 
         /* KOIN BANNER */
         .koin-banner {
@@ -149,48 +149,72 @@
 .btn-tukar-voucher:hover { background: #fdf0f2; }
         .btn-tukar-voucher:hover { background: #f9f0f2; }
 
-        /* VOUCHER SECTION */
+
+/* VOUCHER SECTION */
         .section-title { font-size: 20px; font-weight: 800; color: #5D393B; margin-bottom: 20px; }
 
-        .voucher-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+        .voucher-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; margin-top: 20px; }
 
-       .voucher-card {
-    border: 1px solid #F0D5D8; border-radius: 16px;
-    padding: 18px; display: flex; flex-direction: column; gap: 8px;
-    transition: box-shadow 0.2s; background: white;
-    box-shadow: 0 2px 8px rgba(184,92,101,0.06);
-}
-.voucher-card:hover { box-shadow: 0 4px 16px rgba(184,92,101,0.12); }
-        .voucher-card:hover { box-shadow: 0 4px 16px rgba(224,112,128,0.1); }
-
-        .voucher-logo {
-            width: 48px; height: 32px; background: #f9f0f2;
-            border-radius: 6px; display: flex; align-items: center;
-            justify-content: center; font-size: 10px; color: #c4a0a0;
-            margin-bottom: 4px;
+        .voucher-card {
+            border: 1px solid #e07080;
+            border-radius: 18px;
+            padding: 20px 18px 18px 18px;
+            display: flex; flex-direction: column; gap: 8px;
+            transition: all 0.2s;
+            background: white;
+            box-shadow: 0 4px 16px rgba(184,92,101,0.12);
+            position: relative;
+            overflow: visible;
+            margin-top: 16px;
+        }
+        .voucher-card:hover {
+            box-shadow: 0 8px 28px rgba(184,92,101,0.2);
+            transform: translateY(-2px);
         }
 
+        /* gradasi atas card */
+        .voucher-card-top {
+            background: linear-gradient(135deg, #fff0f3, #fddde4);
+            padding: 14px 14px 16px 14px;
+            margin: -20px -18px 12px -18px;
+            border-bottom: 1px solid #e07080;
+            border-radius: 16px 16px 0 0;
+        }
+
+        /* badge beneran nongol keluar di atas */
         .voucher-badge {
-            display: inline-block; padding: 3px 10px; border-radius: 50px;
-            font-size: 11px; font-weight: 600; width: fit-content;
+            position: absolute;
+            top: -16px;
+            left: 16px;
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 11px; font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
-        .badge-populer { background: #fce4ec; color: #e07080; }
-        .badge-habis { background: #fff3e0; color: #f57c00; }
+        .badge-populer { background: #5D393B; color: white; }
+        .badge-habis { background: #f57c00; color: white; }
+        .badge-terbatas { background: #b85c65; color: white; }
 
-        .voucher-title { font-size: 18px; font-weight: 800; color: #5D393B; }
+        .voucher-title { font-size: 22px; font-weight: 800; color: #5D393B; margin-top: 8px; }
         .voucher-koin { font-size: 14px; font-weight: 700; color: #b85c65; }
         .voucher-min { font-size: 12px; color: #9a6a6a; }
         .voucher-exp { font-size: 12px; color: #9a6a6a; margin-bottom: 4px; }
 
-       .btn-tukar {
-    width: 100%; padding: 11px; 
-    background: linear-gradient(135deg, #f5a5b6, #e07080);
-    color: white; border: none; border-radius: 50px; font-size: 13px; font-weight: 700;
-    cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.2s;
-    margin-top: auto;
-}
-.btn-tukar:hover { background: linear-gradient(135deg, #e8858f, #d06070); }
-        .btn-tukar:hover { background: #e8858f; }
+        .btn-tukar {
+            width: 100%; padding: 12px;
+            background: white;
+            color: #e07080;
+            border: 2px solid #e07080;
+            border-radius: 50px; font-size: 13px; font-weight: 700;
+            cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.2s;
+            margin-top: auto;
+        }
+        .btn-tukar:hover {
+            background: #e07080;
+            color: white;
+            transform: translateY(-1px);
+        }
 
         /* DIVIDER */
         .divider { border: none; border-top: 1px solid #f5e0e0; margin: 8px 0 32px 0; }
@@ -232,24 +256,39 @@
 .btn-pakai:hover { background: #fce4ec; border-color: #b85c65; color: #b85c65; }
 
         /* RIWAYAT */
+
+        .riwayat-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+
         .riwayat-item {
             display: flex; align-items: center; gap: 16px;
-            padding: 16px 0; border-bottom: 1px solid #f9f0f2;
+            padding: 16px 20px;
+            background: white;
+            border-radius: 14px;
+            border: 1px solid #F0D5D8;
+            box-shadow: 0 1px 6px rgba(184,92,101,0.06);
+            transition: all 0.2s;
         }
+        .riwayat-item:hover { box-shadow: 0 4px 14px rgba(184,92,101,0.1); transform: translateY(-1px); }
 
         .riwayat-icon {
-            width: 42px; height: 42px; border-radius: 50%; background: #fdf0f2;
+            width: 44px; height: 44px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 18px; flex-shrink: 0;
+            flex-shrink: 0;
         }
+        .riwayat-icon.masuk { background: #e8f5e9; color: #2ecc71; }
+        .riwayat-icon.keluar { background: #fce4ec; color: #e07080; }
+        .riwayat-icon.bonus { background: #fff8e1; color: #f9a825; }
 
         .riwayat-info { flex: 1; }
         .riwayat-nama { font-size: 14px; font-weight: 600; color: #5D393B; }
-        .riwayat-tgl { font-size: 12px; color: #b4a0a0; margin-top: 2px; }
+        .riwayat-tgl { font-size: 11px; color: #b4a0a0; margin-top: 3px; }
 
-        .riwayat-koin { font-size: 14px; font-weight: 700; white-space: nowrap; }
-        .plus { color: #2ecc71; }
-        .minus { color: #e07080; }
+        .riwayat-koin {
+            font-size: 13px; font-weight: 600; white-space: nowrap;
+            padding: 6px 14px; border-radius: 50px;
+        }
+        .plus { color: #2ecc71; background: #e8f5e9; }
+        .minus { color: #e07080; background: #fce4ec; }
 
         /* MODAL OVERLAY */
         .modal-overlay {
@@ -472,6 +511,23 @@
         }
         .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+        /* SPARK EFFECT */
+        .spark {
+            position: absolute;
+            pointer-events: none;
+        }
+        .spark svg {
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        .spark:nth-child(2) svg { animation-delay: 0.4s; }
+        .spark:nth-child(3) svg { animation-delay: 0.8s; }
+        .spark:nth-child(4) svg { animation-delay: 1.2s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.7) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.1) rotate(15deg); }
+        }
+
     </style>
 </head>
 <body>
@@ -511,7 +567,23 @@
 <div class="content">
 
     <!-- KOIN BANNER -->
-    <div class="koin-banner">
+<!-- KOIN BANNER -->
+    <div class="koin-banner" style="position: relative; overflow: hidden;">
+
+        <!-- SPARK -->
+        <div class="spark" style="top: 14px; right: 160px;">
+            <svg width="28" height="28" viewBox="0 0 24 24"><path d="M12 2 L13.5 10 L22 12 L13.5 14 L12 22 L10.5 14 L2 12 L10.5 10 Z" fill="rgba(255,255,255,0.8)"/></svg>
+        </div>
+        <div class="spark" style="top: 40px; right: 120px;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2 L13.5 10 L22 12 L13.5 14 L12 22 L10.5 14 L2 12 L10.5 10 Z" fill="rgba(255,255,255,0.6)"/></svg>
+        </div>
+        <div class="spark" style="bottom: 20px; right: 180px;">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2 L13.5 10 L22 12 L13.5 14 L12 22 L10.5 14 L2 12 L10.5 10 Z" fill="rgba(255,255,255,0.7)"/></svg>
+        </div>
+        <div class="spark" style="top: 20px; left: 220px;">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L13.5 10 L22 12 L13.5 14 L12 22 L10.5 14 L2 12 L10.5 10 Z" fill="rgba(255,255,255,0.5)"/></svg>
+        </div>
+
         <div class="koin-left">
             <div class="koin-label">
                 <div class="koin-icon-wrap">🪙</div>
@@ -524,50 +596,47 @@
     </div>
 
     <!-- VOUCHER YANG BISA DITUKAR -->
-    <div class="section-title">Voucher yang Bisa Kamu Tukarkan</div>
+<div class="section-title">Voucher yang Bisa Kamu Tukarkan</div>
     <div class="voucher-grid">
 
         <div class="voucher-card">
-            <div class="voucher-logo" style="width:48px; height:32px; background:transparent; border:none; padding:0;">
-    <img src="{{ asset('images/AYU-NE.png') }}" style="width:100%; height:100%; object-fit:contain;">
-</div>
-            <span class="voucher-badge badge-populer">Terpopuler</span>
-            <div class="voucher-title">Diskon 20%</div>
-            <div class="voucher-koin">500 Koin</div>
+            <span class="voucher-badge badge-populer"> Terpopuler</span>
+            <div class="voucher-card-top">
+                <div class="voucher-title">Diskon 20%</div>
+                <div class="voucher-koin">500 Koin</div>
+            </div>
             <div class="voucher-min">Min. belanja Rp 100.000</div>
             <div class="voucher-exp">Berlaku hingga 31 Maret 2026</div>
             <button class="btn-tukar" onclick="bukaKonfirmVoucher(0)">Tukar Sekarang</button>
         </div>
 
         <div class="voucher-card">
-            <div class="voucher-logo" style="width:48px; height:32px; background:transparent; border:none; padding:0;">
-    <img src="{{ asset('images/AYU-NE.png') }}" style="width:100%; height:100%; object-fit:contain;">
-</div>
-            <div class="voucher-title">Diskon 15%</div>
-            <div class="voucher-koin">300 Koin</div>
+            <div class="voucher-card-top">
+                <span class="voucher-badge badge-terbatas"> Terbatas</span>
+                <div class="voucher-title">Diskon 15%</div>
+                <div class="voucher-koin">300 Koin</div>
+            </div>
             <div class="voucher-min">Min. belanja Rp 75.000</div>
             <div class="voucher-exp">Berlaku hingga 28 Februari 2026</div>
             <button class="btn-tukar" onclick="bukaKonfirmVoucher(1)">Tukar Sekarang</button>
         </div>
 
         <div class="voucher-card">
-            <div class="voucher-logo" style="width:48px; height:32px; background:transparent; border:none; padding:0;">
-    <img src="{{ asset('images/AYU-NE.png') }}" style="width:100%; height:100%; object-fit:contain;">
-</div>
-            <span class="voucher-badge badge-habis">Hampir Habis</span>
-            <div class="voucher-title">Diskon 30%</div>
-            <div class="voucher-koin">800 Koin</div>
+            <span class="voucher-badge badge-habis"> Hampir Habis</span>
+            <div class="voucher-card-top">
+                <div class="voucher-title">Diskon 30%</div>
+                <div class="voucher-koin">800 Koin</div>
+            </div>
             <div class="voucher-min">Min. belanja Rp 150.000</div>
             <div class="voucher-exp">Berlaku hingga 15 Maret 2026</div>
             <button class="btn-tukar" onclick="bukaKonfirmVoucher(2)">Tukar Sekarang</button>
         </div>
 
         <div class="voucher-card">
-            <div class="voucher-logo" style="width:48px; height:32px; background:transparent; border:none; padding:0;">
-    <img src="{{ asset('images/AYU-NE.png') }}" style="width:100%; height:100%; object-fit:contain;">
-</div>
-            <div class="voucher-title">Diskon 10%</div>
-            <div class="voucher-koin">200 Koin</div>
+            <div class="voucher-card-top">
+                <div class="voucher-title">Diskon 10%</div>
+                <div class="voucher-koin">200 Koin</div>
+            </div>
             <div class="voucher-min">Min. belanja Rp 50.000</div>
             <div class="voucher-exp">Berlaku hingga 31 Maret 2026</div>
             <button class="btn-tukar" onclick="bukaKonfirmVoucher(3)">Tukar Sekarang</button>
@@ -636,64 +705,99 @@
         <div class="tab-item" onclick="switchRiwayat('keluar', this)">Keluar</div>
     </div>
 
-    <div id="rSemua">
-        <div class="riwayat-item">
-            <div class="riwayat-icon">♻️</div>
-            <div class="riwayat-info">
-                <div class="riwayat-nama">Daur ulang 5 kemasan</div>
-                <div class="riwayat-tgl">5 Maret 2026</div>
+
+<div id="rSemua">
+        <div class="riwayat-list">
+            <div class="riwayat-item">
+                <div class="riwayat-icon masuk">
+                    <iconify-icon icon="fontisto:recycle" width="22"></iconify-icon>
+                </div>
+                <div class="riwayat-info">
+                    <div class="riwayat-nama">Daur ulang 5 kemasan</div>
+                    <div class="riwayat-tgl">5 Maret 2026</div>
+                </div>
+                <div class="riwayat-koin plus">+50 Koin</div>
             </div>
-            <div class="riwayat-koin plus">+50 Koin</div>
-        </div>
-        <div class="riwayat-item">
-            <div class="riwayat-icon">🛍️</div>
-            <div class="riwayat-info">
-                <div class="riwayat-nama">Tukar voucher 20%</div>
-                <div class="riwayat-tgl">3 Maret 2026</div>
+            <div class="riwayat-item">
+                <div class="riwayat-icon keluar">
+                    <iconify-icon icon="mynaui:tag" width="22"></iconify-icon>
+                </div>
+                <div class="riwayat-info">
+                    <div class="riwayat-nama">Tukar voucher 20%</div>
+                    <div class="riwayat-tgl">3 Maret 2026</div>
+                </div>
+                <div class="riwayat-koin minus">-500 Koin</div>
             </div>
-            <div class="riwayat-koin minus">-500 Koin</div>
-        </div>
-        <div class="riwayat-item">
-            <div class="riwayat-icon">⭐</div>
-            <div class="riwayat-info">
-                <div class="riwayat-nama">Bonus misi harian</div>
-                <div class="riwayat-tgl">1 Maret 2026</div>
+            <div class="riwayat-item">
+                <div class="riwayat-icon bonus">
+                    <iconify-icon icon="ph:star-fill" width="22"></iconify-icon>
+                </div>
+                <div class="riwayat-info">
+                    <div class="riwayat-nama">Bonus misi harian</div>
+                    <div class="riwayat-tgl">1 Maret 2026</div>
+                </div>
+                <div class="riwayat-koin plus">+25 Koin</div>
             </div>
-            <div class="riwayat-koin plus">+25 Koin</div>
-        </div>
-        <div class="riwayat-item">
-            <div class="riwayat-icon">♻️</div>
-            <div class="riwayat-info">
-                <div class="riwayat-nama">Daur ulang 3 kemasan</div>
-                <div class="riwayat-tgl">28 Februari 2026</div>
+            <div class="riwayat-item">
+                <div class="riwayat-icon masuk">
+                    <iconify-icon icon="fontisto:recycle" width="22"></iconify-icon>
+                </div>
+                <div class="riwayat-info">
+                    <div class="riwayat-nama">Daur ulang 3 kemasan</div>
+                    <div class="riwayat-tgl">28 Februari 2026</div>
+                </div>
+                <div class="riwayat-koin plus">+30 Koin</div>
             </div>
-            <div class="riwayat-koin plus">+30 Koin</div>
         </div>
     </div>
 
     <div id="rMasuk" style="display:none;">
-        <div class="riwayat-item">
-            <div class="riwayat-icon">♻️</div>
-            <div class="riwayat-info"><div class="riwayat-nama">Daur ulang 5 kemasan</div><div class="riwayat-tgl">5 Maret 2026</div></div>
-            <div class="riwayat-koin plus">+50 Koin</div>
-        </div>
-        <div class="riwayat-item">
-            <div class="riwayat-icon">⭐</div>
-            <div class="riwayat-info"><div class="riwayat-nama">Bonus misi harian</div><div class="riwayat-tgl">1 Maret 2026</div></div>
-            <div class="riwayat-koin plus">+25 Koin</div>
-        </div>
-        <div class="riwayat-item">
-            <div class="riwayat-icon">♻️</div>
-            <div class="riwayat-info"><div class="riwayat-nama">Daur ulang 3 kemasan</div><div class="riwayat-tgl">28 Februari 2026</div></div>
-            <div class="riwayat-koin plus">+30 Koin</div>
+        <div class="riwayat-list">
+            <div class="riwayat-item">
+                <div class="riwayat-icon masuk">
+                    <iconify-icon icon="fontisto:recycle" width="22"></iconify-icon>
+                </div>
+                <div class="riwayat-info">
+                    <div class="riwayat-nama">Daur ulang 5 kemasan</div>
+                    <div class="riwayat-tgl">5 Maret 2026</div>
+                </div>
+                <div class="riwayat-koin plus">+50 Koin</div>
+            </div>
+            <div class="riwayat-item">
+                <div class="riwayat-icon bonus">
+                    <iconify-icon icon="ph:star-fill" width="22"></iconify-icon>
+                </div>
+                <div class="riwayat-info">
+                    <div class="riwayat-nama">Bonus misi harian</div>
+                    <div class="riwayat-tgl">1 Maret 2026</div>
+                </div>
+                <div class="riwayat-koin plus">+25 Koin</div>
+            </div>
+            <div class="riwayat-item">
+                <div class="riwayat-icon masuk">
+                    <iconify-icon icon="fontisto:recycle" width="22"></iconify-icon>
+                </div>
+                <div class="riwayat-info">
+                    <div class="riwayat-nama">Daur ulang 3 kemasan</div>
+                    <div class="riwayat-tgl">28 Februari 2026</div>
+                </div>
+                <div class="riwayat-koin plus">+30 Koin</div>
+            </div>
         </div>
     </div>
 
     <div id="rKeluar" style="display:none;">
-        <div class="riwayat-item">
-            <div class="riwayat-icon">🛍️</div>
-            <div class="riwayat-info"><div class="riwayat-nama">Tukar voucher 20%</div><div class="riwayat-tgl">3 Maret 2026</div></div>
-            <div class="riwayat-koin minus">-500 Koin</div>
+        <div class="riwayat-list">
+            <div class="riwayat-item">
+                <div class="riwayat-icon keluar">
+                    <iconify-icon icon="mynaui:tag" width="22"></iconify-icon>
+                </div>
+                <div class="riwayat-info">
+                    <div class="riwayat-nama">Tukar voucher 20%</div>
+                    <div class="riwayat-tgl">3 Maret 2026</div>
+                </div>
+                <div class="riwayat-koin minus">-500 Koin</div>
+            </div>
         </div>
     </div>
 
