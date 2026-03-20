@@ -3,76 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     <title>Ayu Koin - AYU-NE</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #fff; color: #3b1a1a; }
+        body { background: linear-gradient(180deg, #ffe8ed 0%, #fff5f5 50%, #ffe8ed 100%); color: #3b1a1a; }
 
         /* NAVBAR */
-        .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; border-bottom: 1px solid #f5e0e0; background: white; position: sticky; top: 0; z-index: 100; }
+        .navbar {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 50px;
+            height: 75px;
+            border-bottom: 1px solid #f5e0e0;
+            background: white;
+            background-image: url("{{ asset('images/frame 310(2).png') }}");
+            background-size: cover;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-logo { display: flex; justify-content: flex-start; align-items: center; }
         .nav-logo img { height: 36px; width: auto; object-fit: contain; }
-        .nav-links { display: flex; gap: 36px; list-style: none; }
-        .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: #7a4a4a; transition: color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: #e07080; }
-        .nav-links a.active { font-weight: 700; border-bottom: 2px solid #e07080; padding-bottom: 2px; }
-        .nav-right { display: flex; align-items: center; gap: 18px; }
-        .search-box { display: flex; align-items: center; background: #f9f0f2; border-radius: 50px; padding: 8px 16px; gap: 8px; width: 220px; }
-        .search-box input { border: none; background: transparent; outline: none; font-size: 13px; color: #3b1a1a; width: 100%; font-family: 'Poppins', sans-serif; }
-        .search-box input::placeholder { color: #c4a0a0; }
-        .nav-icon { position: relative; cursor: pointer; font-size: 20px; color: #7a4a4a; text-decoration: none; }
-        .badge { position: absolute; top: -6px; right: -6px; background: #e07080; color: white; font-size: 9px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .avatar { width: 38px; height: 38px; border-radius: 50%; background: #f4a0aa; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: white; text-decoration: none; }
 
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 500;
+            color: #7a4a4a;
+            text-decoration: none;
+            padding: 4px 0;
+            border-bottom: 1.5px solid transparent;
+            opacity: 0.7;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #e07080;
+            border-bottom-color: #FFBBC0;
+            opacity: 1;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 18px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid #f5e0e0;
+            border-radius: 100px;
+            padding: 8px 16px;
+            width: 180px;
+        }
+        .search-box iconify-icon {
+            display: flex;
+            align-items: center;
+        }
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 13px;
+            color: #3b1a1a;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+        .search-box input::placeholder { color: #c4a0a0; }
+
+        .nav-icon {
+            position: relative;
+            cursor: pointer;
+            color: #7a4a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .badge {
+            position: absolute;
+            top: -6px; right: -6px;
+            background: #e07080; color: white;
+            font-size: 9px; font-weight: 700;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .avatar {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffe8ed 0%, #f5a5b6 50%, #ffdde4 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; cursor: pointer;
+            text-decoration: none;
+        }
         /* CONTENT */
-        .content { padding: 36px 40px; }
+        .content { padding: 36px 48px; }
 
         /* KOIN BANNER */
         .koin-banner {
-            background: #fce4ec;
-            border-radius: 20px;
-            padding: 28px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 36px;
-        }
+        background: linear-gradient(135deg, #ffe8ed 0%, #f5a5b6 50%, #ffdde4 100%);
+        border: 0.5px solid #b85c65;
+        border-radius: 20px;
+        padding: 28px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 36px;
+        box-shadow: 0 2px 12px rgba(184,92,101,0.08);
+    }
 
         .koin-left { display: flex; flex-direction: column; gap: 6px; }
 
-        .koin-label {
-            display: flex; align-items: center; gap: 10px;
-            font-size: 14px; font-weight: 600; color: #7a4a4a;
-        }
+            .koin-label {
+        display: flex; align-items: center; gap: 10px;
+        font-size: 14px; font-weight: 600; color: #5D393B;
+    }
 
         .koin-icon-wrap {
-            width: 36px; height: 36px; border-radius: 50%;
-            background: #f9a825; display: flex; align-items: center;
-            justify-content: center; font-size: 18px;
-        }
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #f9a825;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    filter: drop-shadow(0 2px 6px rgba(184,92,101,0.3));
+    border: 1.5px solid #F0D5D8;
+    box-shadow: 0 2px 8px rgba(184,92,101,0.2);
+}
 
-        .koin-number { font-size: 48px; font-weight: 800; color: #3b1a1a; line-height: 1.1; }
-        .koin-equiv { font-size: 13px; color: #9a6a6a; }
+        .koin-number { font-size: 48px; font-weight: 800; color: #5D393B; line-height: 1.1; }
+        .koin-equiv { font-size: 13px; color: #7a4a4a; }
 
-        .btn-tukar-voucher {
-            padding: 13px 28px; background: white; border: none;
-            border-radius: 50px; font-size: 14px; font-weight: 700;
-            color: #3b1a1a; cursor: pointer; font-family: 'Poppins', sans-serif;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: all 0.2s;
-            white-space: nowrap;
-        }
+       .btn-tukar-voucher {
+    padding: 13px 28px; background: white; border: none;
+    border-radius: 50px; font-size: 14px; font-weight: 700;
+    color: #5D393B; cursor: pointer; font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 12px rgba(184,92,101,0.15); transition: all 0.2s;
+    white-space: nowrap; border: 1px solid #F0D5D8;
+}
+.btn-tukar-voucher:hover { background: #fdf0f2; }
         .btn-tukar-voucher:hover { background: #f9f0f2; }
 
         /* VOUCHER SECTION */
-        .section-title { font-size: 20px; font-weight: 800; color: #3b1a1a; margin-bottom: 20px; }
+        .section-title { font-size: 20px; font-weight: 800; color: #5D393B; margin-bottom: 20px; }
 
         .voucher-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
 
-        .voucher-card {
-            border: 1px solid #f5e0e0; border-radius: 16px;
-            padding: 18px; display: flex; flex-direction: column; gap: 8px;
-            transition: box-shadow 0.2s;
-        }
+       .voucher-card {
+    border: 1px solid #F0D5D8; border-radius: 16px;
+    padding: 18px; display: flex; flex-direction: column; gap: 8px;
+    transition: box-shadow 0.2s; background: white;
+    box-shadow: 0 2px 8px rgba(184,92,101,0.06);
+}
+.voucher-card:hover { box-shadow: 0 4px 16px rgba(184,92,101,0.12); }
         .voucher-card:hover { box-shadow: 0 4px 16px rgba(224,112,128,0.1); }
 
         .voucher-logo {
@@ -89,17 +177,19 @@
         .badge-populer { background: #fce4ec; color: #e07080; }
         .badge-habis { background: #fff3e0; color: #f57c00; }
 
-        .voucher-title { font-size: 18px; font-weight: 800; color: #3b1a1a; }
-        .voucher-koin { font-size: 14px; font-weight: 700; color: #e07080; }
+        .voucher-title { font-size: 18px; font-weight: 800; color: #5D393B; }
+        .voucher-koin { font-size: 14px; font-weight: 700; color: #b85c65; }
         .voucher-min { font-size: 12px; color: #9a6a6a; }
         .voucher-exp { font-size: 12px; color: #9a6a6a; margin-bottom: 4px; }
 
-        .btn-tukar {
-            width: 100%; padding: 11px; background: #f4a0aa; color: white;
-            border: none; border-radius: 50px; font-size: 13px; font-weight: 700;
-            cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.2s;
-            margin-top: auto;
-        }
+       .btn-tukar {
+    width: 100%; padding: 11px; 
+    background: linear-gradient(135deg, #f5a5b6, #e07080);
+    color: white; border: none; border-radius: 50px; font-size: 13px; font-weight: 700;
+    cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.2s;
+    margin-top: auto;
+}
+.btn-tukar:hover { background: linear-gradient(135deg, #e8858f, #d06070); }
         .btn-tukar:hover { background: #e8858f; }
 
         /* DIVIDER */
@@ -116,30 +206,30 @@
             padding: 10px 0; margin-right: 28px; cursor: pointer;
             border-bottom: 2px solid transparent; transition: all 0.2s;
         }
-        .tab-item.active { color: #e07080; font-weight: 700; border-bottom: 2px solid #e07080; }
+        .tab-item.active { color: #b85c65; font-weight: 700; border-bottom: 2px solid #b85c65; }
         .tab-item:hover:not(.active) { color: #7a4a4a; }
 
         .voucher-list { margin-bottom: 40px; }
 
         .voucher-item {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 18px 20px; border: 1.5px dashed #f4a0aa;
-            border-radius: 14px; margin-bottom: 12px; background: #fff9fa;
-            transition: all 0.2s;
-        }
-        .voucher-item:hover { background: #fff5f6; }
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 20px; border: 1.5px dashed #f4a0aa;
+    border-radius: 14px; margin-bottom: 12px; background: white;
+    transition: all 0.2s; box-shadow: 0 1px 6px rgba(184,92,101,0.06);
+}
+.voucher-item:hover { background: #fff5f6; }
 
         .voucher-item-code { font-size: 13px; font-weight: 700; color: #7a4a4a; margin-bottom: 4px; }
-        .voucher-item-disc { font-size: 16px; font-weight: 800; color: #3b1a1a; margin-bottom: 4px; }
+        .voucher-item-disc { font-size: 16px; font-weight: 800; color: #5D393B; margin-bottom: 4px; }
         .voucher-item-info { font-size: 12px; color: #9a6a6a; }
 
         .btn-pakai {
-            padding: 9px 22px; border: 1.5px solid #f0d5d5;
-            border-radius: 50px; background: white; font-size: 13px;
-            font-weight: 700; color: #3b1a1a; cursor: pointer;
-            font-family: 'Poppins', sans-serif; transition: all 0.2s; white-space: nowrap;
-        }
-        .btn-pakai:hover { background: #fce4ec; border-color: #f4a0aa; }
+    padding: 9px 22px; border: 1.5px solid #F0D5D8;
+    border-radius: 50px; background: white; font-size: 13px;
+    font-weight: 700; color: #5D393B; cursor: pointer;
+    font-family: 'Poppins', sans-serif; transition: all 0.2s; white-space: nowrap;
+}
+.btn-pakai:hover { background: #fce4ec; border-color: #b85c65; color: #b85c65; }
 
         /* RIWAYAT */
         .riwayat-item {
@@ -154,7 +244,7 @@
         }
 
         .riwayat-info { flex: 1; }
-        .riwayat-nama { font-size: 14px; font-weight: 600; color: #3b1a1a; }
+        .riwayat-nama { font-size: 14px; font-weight: 600; color: #5D393B; }
         .riwayat-tgl { font-size: 12px; color: #b4a0a0; margin-top: 2px; }
 
         .riwayat-koin { font-size: 14px; font-weight: 700; white-space: nowrap; }
@@ -391,17 +481,30 @@
     <div class="nav-logo">
         <a href="{{ route('dashboard') }}"><img src="{{ asset('images/AYU-NE.png') }}" alt="AYU-NE"></a>
     </div>
+
     <ul class="nav-links">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('ayu-belanja') }}">Ayu Belanja</a></li>
         <li><a href="{{ route('ayu-daur-ulang') }}">Ayu Daur Ulang</a></li>
         <li><a href="{{ route('ayu-koin') }}" class="active">Ayu Koin</a></li>
     </ul>
+
     <div class="nav-right">
-        <div class="search-box"><span>🔍</span><input type="text" placeholder="Cari produk..."></div>
-        <a href="{{ route('notifikasi') }}" class="nav-icon">🔔<div class="badge">•</div></a>
-        <a href="{{ route('keranjang') }}" class="nav-icon">🛒<div class="badge">2</div></a>
-        <a href="{{ route('profil') }}" class="avatar">A</a>
+        <div class="search-box">
+            <iconify-icon icon="basil:search-solid" width="20"></iconify-icon>
+            <input type="text" placeholder="Cari produk...">
+        </div>
+        <a href="{{ route('notifikasi') }}" class="nav-icon">
+            <iconify-icon icon="basil:notification-outline" width="25"></iconify-icon>
+            <div class="badge">•</div>
+        </a>
+        <a href="{{ route('keranjang') }}" class="nav-icon">
+            <iconify-icon icon="mynaui:cart" width="25"></iconify-icon>
+            <div class="badge">2</div>
+        </a>
+        <a href="{{ route('profil') }}" class="avatar">
+            <iconify-icon icon="icon-park-solid:women" width="20"></iconify-icon>
+        </a>
     </div>
 </nav>
 
@@ -425,7 +528,9 @@
     <div class="voucher-grid">
 
         <div class="voucher-card">
-            <div class="voucher-logo">Logo</div>
+            <div class="voucher-logo" style="width:48px; height:32px; background:transparent; border:none; padding:0;">
+    <img src="{{ asset('images/AYU-NE.png') }}" style="width:100%; height:100%; object-fit:contain;">
+</div>
             <span class="voucher-badge badge-populer">Terpopuler</span>
             <div class="voucher-title">Diskon 20%</div>
             <div class="voucher-koin">500 Koin</div>
@@ -435,7 +540,9 @@
         </div>
 
         <div class="voucher-card">
-            <div class="voucher-logo">Logo</div>
+            <div class="voucher-logo" style="width:48px; height:32px; background:transparent; border:none; padding:0;">
+    <img src="{{ asset('images/AYU-NE.png') }}" style="width:100%; height:100%; object-fit:contain;">
+</div>
             <div class="voucher-title">Diskon 15%</div>
             <div class="voucher-koin">300 Koin</div>
             <div class="voucher-min">Min. belanja Rp 75.000</div>
@@ -444,7 +551,9 @@
         </div>
 
         <div class="voucher-card">
-            <div class="voucher-logo">Logo</div>
+            <div class="voucher-logo" style="width:48px; height:32px; background:transparent; border:none; padding:0;">
+    <img src="{{ asset('images/AYU-NE.png') }}" style="width:100%; height:100%; object-fit:contain;">
+</div>
             <span class="voucher-badge badge-habis">Hampir Habis</span>
             <div class="voucher-title">Diskon 30%</div>
             <div class="voucher-koin">800 Koin</div>
@@ -454,7 +563,9 @@
         </div>
 
         <div class="voucher-card">
-            <div class="voucher-logo">Logo</div>
+            <div class="voucher-logo" style="width:48px; height:32px; background:transparent; border:none; padding:0;">
+    <img src="{{ asset('images/AYU-NE.png') }}" style="width:100%; height:100%; object-fit:contain;">
+</div>
             <div class="voucher-title">Diskon 10%</div>
             <div class="voucher-koin">200 Koin</div>
             <div class="voucher-min">Min. belanja Rp 50.000</div>
